@@ -9,23 +9,15 @@
             <p>This is a test project hooked to the api of TMDB</p>
         </div>
     </div>
-    <div class="container ">
-        <h1 class="display-4">popular movies</h1>
-        <div class="row">
+    <section class="section-overview">
+        <h2 class="section-title">Now In Theaters</h2>
+        <div class="card-container">
             @foreach (var movie in Model)
             {
-              <div class="col-sm-2">
-                  <div class="thumbnail">
-                      <img src=@("https://image.tmdb.org/t/p/w200" + movie.PosterLink) />
-                      <div class="caption">
-                          <h3 class="pull-right">@movie.Rating</h3>
-                          <h3>@movie.Title</h3>
-                      </div>
-                  </div>
-              </div>
+              <partial name="_MovieCard" for="@movie"/>
             }
         </div>
-    </div>
+    </section>
 
 </div>
 
