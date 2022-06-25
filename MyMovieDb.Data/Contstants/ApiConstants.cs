@@ -18,7 +18,10 @@ namespace MyMovieDb.Data.Contstants
         public const string SearchMovieEndPoint = "search/movie?";
         public const string MoviesInTheaterEndPoint = "movie/now_playing?";
 
+
         public const string TvEndPoint = "tv/";
+        public const string PopularTvShowsEndpoint = "tv/popular?";
+        public const string TopRatedTvShowsEndPoint = "tv/top_rated?";
         public const string PersonEndPoint = "person/";
 
         public const string SearchEnpoint = "search/";

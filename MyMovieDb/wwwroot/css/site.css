@@ -73,6 +73,8 @@ body {
     line-height: 60px; /* Vertically center the text there */
 }
 
+
+
 .section-overview {
     position: relative;
     overflow: hidden;
@@ -81,8 +83,16 @@ body {
 
 .section-title {
     padding: 0 10vw;
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 500;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+}
+
+.section-subtitle {
+    padding: 0 10vw;
+    font-size: 30px;
+    font-weight: 450;
     margin-bottom: 40px;
     text-transform: capitalize;
 }
@@ -204,4 +214,10 @@ body {
     font-weight: bolder;
     color: #343A40;
     
+}
+
+/* TV-SHOWS   */
+.tv-section{
+    padding-top: 30px;
+    background-color: #e9ecef;
 }

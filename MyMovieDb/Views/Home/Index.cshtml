@@ -9,41 +9,72 @@
             <p>This is a project created for ITalent</p>
         </div>
     </div>
-    <section class="section-overview">
-        <h2 class="section-title">Now In Theaters</h2>
-         <button class="previous-btn"><img src="images/previous.png" alt=""></button>
-        <button class="next-btn"><img src="images/next.png" alt=""></button>
-        <div class="card-container">
-            @foreach (var movie in Model.TheaterMovies)
-            {
-              <partial name="_MovieCard" for="@movie"/>
-            }
-        </div>
+    <section>
+        <h1 class="section-title">Movies</h1>
+        <section class="section-overview">
+            <h2 class="section-subtitle">Now In Theaters</h2>
+            <button class="previous-btn"><img src="images/previous.png" alt=""></button>
+            <button class="next-btn"><img src="images/next.png" alt=""></button>
+            <div class="card-container">
+                @foreach (var movie in Model.TheaterMovies)
+                {
+                    <partial name="_MovieCard" for="@movie" />
+                }
+            </div>
+        </section>
+
+        <section class="section-overview">
+            <h2 class="section-subtitle">Popular Movies</h2>
+            <button class="previous-btn"><img src="images/previous.png" alt=""></button>
+            <button class="next-btn"><img src="images/next.png" alt=""></button>
+            <div class="card-container">
+                @foreach (var movie in Model.PopularMovies)
+                {
+                    <partial name="_MovieCard" for="@movie" />
+                }
+            </div>
+        </section>
+
+        <section class="section-overview">
+            <h2 class="section-subtitle">Top Rated Movies</h2>
+            <button class="previous-btn"><img src="images/previous.png" alt=""></button>
+            <button class="next-btn"><img src="images/next.png" alt=""></button>
+            <div class="card-container">
+                @foreach (var movie in Model.TopRatedMovies)
+                {
+                    <partial name="_MovieCard" for="@movie" />
+                }
+            </div>
+        </section>
+    </section >
+
+     <section class="tv-section">
+        <h1 class="section-title">TV-Shows</h1>
+        <section class="section-overview">
+            <h2 class="section-subtitle">Popular TV-Shows</h2>
+            <button class="previous-btn"><img src="images/previous.png" alt=""></button>
+            <button class="next-btn"><img src="images/next.png" alt=""></button>
+            <div class="card-container">
+                @foreach (var serie in Model.PopularTVSeries)
+                {
+                    <partial name="_TvCard" for="@serie" />
+                }
+            </div>
+        </section>
+
+        <section class="section-overview">
+            <h2 class="section-subtitle">Top rated TV-Shows</h2>
+            <button class="previous-btn"><img src="images/previous.png" alt=""></button>
+            <button class="next-btn"><img src="images/next.png" alt=""></button>
+            <div class="card-container">
+                @foreach (var serie in Model.TopRatedTVSeries)
+                {
+                    <partial name="_TvCard" for="@serie" />
+                }
+            </div>
+        </section>
     </section>
 
-     <section class="section-overview">
-        <h2 class="section-title">Popular Movies</h2>
-         <button class="previous-btn"><img src="images/previous.png" alt=""></button>
-        <button class="next-btn"><img src="images/next.png" alt=""></button>
-        <div class="card-container">
-            @foreach (var movie in Model.PopularMovies)
-            {
-              <partial name="_MovieCard" for="@movie"/>
-            }
-        </div>
-    </section>
-
-     <section class="section-overview">
-        <h2 class="section-title">Top Rated Movies</h2>
-         <button class="previous-btn"><img src="images/previous.png" alt=""></button>
-        <button class="next-btn"><img src="images/next.png" alt=""></button>
-        <div class="card-container">
-            @foreach (var movie in Model.TopRatedMovies)
-            {
-              <partial name="_MovieCard" for="@movie"/>
-            }
-        </div>
-    </section>
 
 </div>
 

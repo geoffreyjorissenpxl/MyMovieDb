@@ -1,0 +1,16 @@
+﻿@model TVSerieSearch
+
+<div class="media-card">
+    <div class="media-image">
+          <div class="rating-container">
+            <p class="rating">@Model.Rating</p>
+        </div>
+         <img src=@("https://image.tmdb.org/t/p/w200" + @Model.PosterLink) class="media-thumbnail" />
+        
+    </div>
+   
+    <div class="media-info">
+        <h5 class="media-title">@Model.Name.ToUpper()</h5>
+
+    </div>
+</div>

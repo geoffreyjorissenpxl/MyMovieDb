@@ -18,11 +18,13 @@ namespace MyMovieDb.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private IMovieService _movieService;
+        private ITVSerieService _tvSerieService;
 
-        public HomeController(ILogger<HomeController> logger, IMovieService movieService)
+        public HomeController(ILogger<HomeController> logger, IMovieService movieService, ITVSerieService tvSerieService)
         {
             _logger = logger;
             _movieService = movieService;
+            _tvSerieService = tvSerieService;
         }
 
         public async Task<IActionResult> Index()
@@ -31,6 +33,9 @@ namespace MyMovieDb.Controllers
             viewModel.TheaterMovies = await _movieService.GetMoviesInTheater(1);
             viewModel.PopularMovies = await _movieService.GetPopularMovies();
             viewModel.TopRatedMovies = await _movieService.GetTopRatedMovies();
+
+            viewModel.PopularTVSeries = await _tvSerieService.GetPopularTVSeries();
+            viewModel.TopRatedTVSeries = await _tvSerieService.GetTopRatedTVSeries();
             
             return View(viewModel);
         }

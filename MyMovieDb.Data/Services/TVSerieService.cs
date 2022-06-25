@@ -23,7 +23,7 @@ namespace MyMovieDb.Data.Services
 
         public async Task<TVSerie> GetDetails(int id)
         {
-            var url = $"/tv/{id}?api_key={ApiConstants.ApiKey}&language=en-US";
+            var url = $"tv/{id}?api_key={ApiConstants.ApiKey}&language=en-US";
             var result = await _genericApiRepository.GetAsync<TVSerie>(url);
 
             return result;
@@ -31,7 +31,7 @@ namespace MyMovieDb.Data.Services
 
         public async Task<IList<TVSerieSearch>> GetPopularTVSeries()
         {
-            var url = $"/movie/popular?api_key={ApiConstants.ApiKey}&language=en-US&page=1";
+            var url = $"tv/popular?api_key={ApiConstants.ApiKey}&language=en-US&page=1";
             var resultPage = await _genericApiRepository.GetAsync<ResultPage<TVSerieSearch>>(url);
 
             return resultPage.Results;
@@ -39,7 +39,7 @@ namespace MyMovieDb.Data.Services
 
         public async Task<IList<TVSerieSearch>> GetTopRatedTVSeries(int page = 1)
         {
-            var url = $"/tv/top_rated?api_key={ApiConstants.ApiKey}&language=en-US&page={page}";
+            var url = $"tv/top_rated?api_key={ApiConstants.ApiKey}&language=en-US&page={page}";
             var resultPage = await _genericApiRepository.GetAsync<ResultPage<TVSerieSearch>>(url);
 
             return resultPage.Results;
