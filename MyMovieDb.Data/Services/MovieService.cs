@@ -29,7 +29,7 @@ namespace MyMovieDb.Data.Services
 
         public async Task<IList<MovieSearch>> GetPopularMovies(int page = 1)
         {
-            var url = $"{ApiConstants.PopularMoviesEndpoint}{ApiConstants.ApiKey}&page={page}";
+            var url = $"{ApiConstants.PopularMoviesEndpoint}api_key={ApiConstants.ApiKey}&language=en-US&page={page}";
             var resultPage = await _genericApiRepository.GetAsync<ResultPage<MovieSearch>>(url);
 
             return resultPage.Results;

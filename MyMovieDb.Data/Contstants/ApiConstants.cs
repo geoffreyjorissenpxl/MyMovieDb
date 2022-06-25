@@ -12,7 +12,7 @@ namespace MyMovieDb.Data.Contstants
         public const string NoAdultSearch = "false";
 
 
-        public const string PopularMoviesEndpoint = "movie/popular/";
+        public const string PopularMoviesEndpoint = "movie/popular?";
         public const string TopRatedMoviesEndPoint = "movie/top_rated?";
         public const string UpcomingMoviesEndpoint = "movie/upcoming?";
         public const string SearchMovieEndPoint = "search/movie?";
