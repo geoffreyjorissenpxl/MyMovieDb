@@ -27,8 +27,12 @@ namespace MyMovieDb.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var movies = await _movieService.GetUpcomingMovies(2);
-            return View(movies);
+            var viewModel = new HomeViewModel();
+            viewModel.TheaterMovies = await _movieService.GetMoviesInTheater(1);
+            viewModel.PopularMovies = await _movieService.GetPopularMovies();
+            viewModel.TopRatedMovies = await _movieService.GetTopRatedMovies();
+            
+            return View(viewModel);
         }
 
         public IActionResult Privacy()
