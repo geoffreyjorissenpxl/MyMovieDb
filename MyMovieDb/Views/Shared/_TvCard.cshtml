@@ -5,10 +5,10 @@
           <div class="rating-container">
             <p class="rating">@Model.Rating</p>
         </div>
-         <img src=@("https://image.tmdb.org/t/p/w200" + @Model.PosterLink) class="media-thumbnail" />
-        
+           <a asp-controller="TV" asp-action="Detail" asp-route-id="@Model.Id">
+                 <img src=@("https://image.tmdb.org/t/p/w200" + @Model.PosterLink) class="media-thumbnail" />
+            </a>
     </div>
-   
     <div class="media-info">
         <h5 class="media-title">@Model.Name.ToUpper()</h5>
 

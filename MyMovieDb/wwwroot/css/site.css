@@ -119,17 +119,17 @@ body {
     margin-right: 40px;
 }
 
-.media-card:hover {
-    opacity: 0.8;
-
-}
-
 .media-image {
     position: relative;
     width: 100%;
     height: 250px;
     overflow: hidden;
 }
+
+.media-image:hover {
+    opacity: 0.8;
+}
+
 
 
 .media-thumbnail {
@@ -153,6 +153,18 @@ body {
 }
 
 /* Buttons */
+
+.card-btn{
+    all: unset;
+    border: none;
+    background-color: none;
+    width: fit-content;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+
+    cursor: pointer;
+}
+
 .next-btn {
     right: 0;
     padding: 0;
