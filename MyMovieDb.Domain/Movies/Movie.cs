@@ -8,7 +8,7 @@ namespace MyMovieDb.Domain.Movies
     public class Movie
     {
 
-        [JsonProperty(PropertyName = "release_date")]
+        [JsonProperty(PropertyName = "id")]
         public int Id { get; set; }
         [JsonProperty(PropertyName = "title")]
         public string Title { get; set; }
@@ -28,5 +28,8 @@ namespace MyMovieDb.Domain.Movies
         public int Votes { get; set; }
         [JsonProperty(PropertyName = "popularity")]
         public double PopularityScore { get; set; }
+        
+        [JsonIgnore]
+        public IList<Cast> Cast { get; set; }
     }
 }

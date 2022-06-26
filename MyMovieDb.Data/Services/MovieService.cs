@@ -36,7 +36,7 @@ namespace MyMovieDb.Data.Services
         }
 
         public async Task<IList<MovieSearch>> GetTopRatedMovies(int page)
-        { 
+        {
             var url = $"{ApiConstants.TopRatedMoviesEndPoint}api_key={ApiConstants.ApiKey}&language=en-US&page={page}";
             var resultPage = await _genericApiRepository.GetAsync<ResultPage<MovieSearch>>(url);
 
@@ -60,11 +60,20 @@ namespace MyMovieDb.Data.Services
         }
 
         public async Task<IList<MovieSearch>> SearchMovie(string name, int page)
-        { 
+        {
             var url = $"{ApiConstants.SearchMovieEndPoint}api_key={ApiConstants.ApiKey}&language=en-US&query={name}&page={page}&include_adult=false";
 
             var resultPage = await _genericApiRepository.GetAsync<ResultPage<MovieSearch>>(url);
             return resultPage.Results;
+        }
+
+        public async Task<IList<Cast>> GetMovieCast(int id)
+        {
+            var url = $"movie/{id}/credits?api_key={ApiConstants.ApiKey}&language=en-US";
+
+            var result = await _genericApiRepository.GetAsync<Credits>(url);
+            return result.Cast;
+
         }
     }
 }

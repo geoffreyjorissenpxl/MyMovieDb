@@ -1,4 +1,5 @@
-﻿using MyMovieDb.Domain.Movies;
+﻿using MyMovieDb.Domain;
+using MyMovieDb.Domain.Movies;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,5 +15,6 @@ namespace MyMovieDb.Data.Services.Contracts
         Task<IList<MovieSearch>> GetTopRatedMovies(int page = 1);
         Task<IList<MovieSearch>> GetUpcomingMovies(int page = 1);
         Task<IList<MovieSearch>> GetMoviesInTheater(int page = 1);
+        Task<IList<Cast>> GetMovieCast(int id);
     }
 }
