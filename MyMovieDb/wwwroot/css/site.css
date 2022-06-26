@@ -233,6 +233,7 @@ body {
     background-color: #e9ecef;
     color: #343a40;
     border-color: #343a40;
+    height: 35px;
 }
 
 .more-btn:hover {

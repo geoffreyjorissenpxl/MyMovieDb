@@ -13,41 +13,20 @@
         <h1 class="section-title">Movies</h1>
         <section class="section-overview">
             <h2 class="section-subtitle">Now In Theaters</h2>
-            <button class="previous-btn"><img src="images/previous.png" alt=""></button>
-            <button class="next-btn"><img src="images/next.png" alt=""></button>
-            <div class="card-container">
-                @foreach (var movie in Model.TheaterMovies)
-                {
-                    <partial name="_MovieCard" for="@movie" />
-                }
-            </div>
-            <button class="more-btn">View In Theaters</button>
+            <partial name="_MovieCarousel" for="@Model.TheaterMovies"/>
+            <button class="more-btn">View More In Theaters</button>
         </section>
 
         <section class="section-overview">
             <h2 class="section-subtitle">Popular Movies</h2>
-            <button class="previous-btn"><img src="images/previous.png" alt=""></button>
-            <button class="next-btn"><img src="images/next.png" alt=""></button>
-            <div class="card-container">
-                @foreach (var movie in Model.PopularMovies)
-                {
-                    <partial name="_MovieCard" for="@movie" />
-                }
-            </div>
-             <button class="more-btn">View Popular Movies</button>
+            <partial name="_MovieCarousel" for="@Model.PopularMovies"/>
+            <button class="more-btn">View More Popular</button>
         </section>
 
         <section class="section-overview">
             <h2 class="section-subtitle">Top Rated Movies</h2>
-            <button class="previous-btn"><img src="images/previous.png" alt=""></button>
-            <button class="next-btn"><img src="images/next.png" alt=""></button>
-            <div class="card-container">
-                @foreach (var movie in Model.TopRatedMovies)
-                {
-                    <partial name="_MovieCard" for="@movie" />
-                }
-            </div>
-             <button class="more-btn">View Top Rated Movies</button>
+            <partial name="_MovieCarousel" for="@Model.TopRatedMovies"/>
+             <button class="more-btn">View More Top Rated</button>
         </section>
     </section >
 
@@ -55,28 +34,14 @@
         <h1 class="section-title">TV-Shows</h1>
         <section class="section-overview">
             <h2 class="section-subtitle">Popular TV-Shows</h2>
-            <button class="previous-btn"><img src="images/previous.png" alt=""></button>
-            <button class="next-btn"><img src="images/next.png" alt=""></button>
-            <div class="card-container">
-                @foreach (var serie in Model.PopularTVSeries)
-                {
-                    <partial name="_TvCard" for="@serie" />
-                }
-            </div>
-             <button class="more-btn">View Popular Shows</button>
+            <partial name="_TvCarousel" for="@Model.PopularTVSeries"/>
+             <button class="more-btn">View More Popular</button>
         </section>
 
         <section class="section-overview">
             <h2 class="section-subtitle">Top rated TV-Shows</h2>
-            <button class="previous-btn"><img src="images/previous.png" alt=""></button>
-            <button class="next-btn"><img src="images/next.png" alt=""></button>
-            <div class="card-container">
-                @foreach (var serie in Model.TopRatedTVSeries)
-                {
-                    <partial name="_TvCard" for="@serie" />
-                }
-            </div>
-            <button class="more-btn">View Top Rated Shows</button>
+              <partial name="_TvCarousel" for="@Model.PopularTVSeries"/>
+            <button class="more-btn">View More Top Rated</button>
         </section>
     </section>
 
