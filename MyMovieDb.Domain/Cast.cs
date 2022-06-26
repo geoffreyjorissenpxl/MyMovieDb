@@ -12,5 +12,8 @@ namespace MyMovieDb.Domain
 
         [JsonProperty(PropertyName = "Character")]
         public string Character { get; set; }
+
+        [JsonProperty(PropertyName = "popularity")]
+        public double Number { get; set; }
     }
 }
