@@ -10,9 +10,11 @@ namespace MyMovieDb.Controllers
     public class MovieController : Controller
     {
         private IMovieService _movieService;
-        public MovieController(IMovieService movieService)
+        private IMediaService _mediaService;
+        public MovieController(IMovieService movieService, IMediaService mediaService)
         {
             _movieService = movieService;
+            _mediaService = mediaService;
         }
         public IActionResult Index()
         {
@@ -24,6 +26,9 @@ namespace MyMovieDb.Controllers
         {
             var movie = await _movieService.GetDetails(id);
             movie.Cast = await _movieService.GetMovieCast(id);
+
+            movie.MovieMedia.Posters = await _mediaService.GetPosters(id, "movie");
+            movie.MovieMedia.Videos = await _mediaService.GetVideos(id, "movie");
 
             return View(movie);
         }

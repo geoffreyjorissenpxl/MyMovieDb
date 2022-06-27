@@ -33,6 +33,7 @@ namespace MyMovieDb
             services.AddScoped<IMovieService, MovieService>();
             services.AddScoped<ITVSerieService, TVSerieService>();
             services.AddScoped<IGenericApiRepository, GenericApiRepository>();
+            services.AddScoped<IMediaService, MediaService>();
             services.AddControllersWithViews();
         }
 

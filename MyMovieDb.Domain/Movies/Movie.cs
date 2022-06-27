@@ -36,5 +36,9 @@ namespace MyMovieDb.Domain.Movies
         
         [JsonIgnore]
         public IList<Cast> Cast { get; set; }
+       
+        [JsonIgnore]
+        public Media MovieMedia { get; set; }
+
     }
 }
