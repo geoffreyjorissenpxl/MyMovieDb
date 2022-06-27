@@ -15,5 +15,8 @@ namespace MyMovieDb.Domain
 
         [JsonProperty(PropertyName = "popularity")]
         public double Number { get; set; }
+
+        [JsonProperty(PropertyName = "profile_path")]
+        public string PosterLink { get; set; }
     }
 }

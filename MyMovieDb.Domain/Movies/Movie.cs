@@ -12,8 +12,13 @@ namespace MyMovieDb.Domain.Movies
         public int Id { get; set; }
         [JsonProperty(PropertyName = "title")]
         public string Title { get; set; }
+        [JsonProperty(PropertyName = "runtime")]
+        public int Duration { get; set; }
+        [JsonProperty(PropertyName = "tagline")]
+        public string Tagline { get; set; }
+
         [JsonProperty(PropertyName = "overview")]
-        public string Overview { get; set; }
+        public string Description { get; set; }
         public IList<Genre> Genres { get; set; }
 
         [JsonProperty(PropertyName = "release_date")]
