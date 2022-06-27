@@ -1,0 +1,35 @@
+﻿@model Movie
+
+<section class="tv-section">
+    <div class="grid-detail-header-container">
+        <img src=@("https://image.tmdb.org/t/p/w300" + @Model.PosterLink) class="media-poster" />
+
+        <div class="grid-item">
+
+            <h3 class="media-detail-title">@Model.Title.ToUpper()</h3>
+            <p>@Model.ReleaseDate.Value.Year -</p>
+
+            @foreach (var genre in Model.Genres)
+            {
+                <p>@genre.Name</p>
+            }
+            <p>- @Model.Duration min</p>
+
+            <h6>UserScore @Model.Rating</h6>
+
+            <h6 class="media-short-description">@Model.Tagline</h6>
+            <h4 class="media-detail-subtitle">Description</h4>
+            <p class="media-description">@Model.Description</p>
+        </div>
+    </div>
+</section>
+<section>
+    <h6 class="section-subtitle">Cast</h6>
+
+    <div class="media-detail-cast-container">
+        @foreach(var castMember in @Model.Cast)
+        {
+            <partial name="_CastCard" for="@castMember"></partial>
+        }
+    </div>
+</section>

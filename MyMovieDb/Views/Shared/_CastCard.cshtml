@@ -1,0 +1,11 @@
+﻿@using MyMovieDb.Domain
+@model Cast
+
+<div class="cast-card">
+    <div class="cast-image">
+         <img src=@("https://image.tmdb.org/t/p/w138_and_h175_face/" + @Model.PosterLink) class="media-thumbnail"/>
+    </div>
+    <h6 class="cast-name">@Model.Name</h6>
+    <h6 class="cast-character">@Model.Character</h6>
+
+</div>
