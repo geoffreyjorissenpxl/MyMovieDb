@@ -292,8 +292,8 @@ body {
 }
 
 .media-detail-cast-container {
-    padding-top: 5vh;
-    margin-left: 10vw;
+    padding-left: 1vw;
+    margin-left: 9vw;
     display: flex;
     overflow-x: scroll;
     scroll-behavior: smooth;
