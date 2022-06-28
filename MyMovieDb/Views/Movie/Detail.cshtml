@@ -1,24 +1,24 @@
-﻿@model Movie
+﻿@model MovieDetailViewModel
 
 <div class="grid-detail-header-container tv-section">
-    <img src=@("https://image.tmdb.org/t/p/w300" + @Model.PosterLink) class="media-poster" />
+    <img src=@("https://image.tmdb.org/t/p/w300" + @Model.Movie.PosterLink) class="media-poster" />
 
     <div class="grid-item">
 
-        <h3 class="media-detail-title">@Model.Title.ToUpper()</h3>
-        <p>@Model.ReleaseDate.Value.Year -</p>
+        <h3 class="media-detail-title">@Model.Movie.Title.ToUpper()</h3>
+        <p>@Model.Movie.ReleaseDate.Value.Year -</p>
 
-        @foreach (var genre in Model.Genres)
+        @foreach (var genre in Model.Movie.Genres)
         {
             <p>@genre.Name</p>
         }
-        <p>- @Model.Duration min</p>
+        <p>- @Model.Movie.Duration min</p>
 
-        <h6>Rating @Model.Rating.ToString("0.0")</h6>
+        <h6>Rating @Model.Movie.Rating.ToString("0.0")</h6>
 
-        <h6 class="media-short-description">@Model.Tagline</h6>
+        <h6 class="media-short-description">@Model.Movie.Tagline</h6>
         <h4 class="media-detail-subtitle">Description</h4>
-        <p class="media-description">@Model.Description</p>
+        <p class="media-description">@Model.Movie.Description</p>
     </div>
 </div>
 
@@ -32,9 +32,9 @@
 
 <h6 class="section-subtitle">Movie Images</h6>
 <div class="media-detail-cast-container">
-    @foreach (var poster in @Model.MovieMedia.Posters)
+    @foreach (var poster in @Model.Media.Posters)
     {
-            <div class="poster-card">
+        <div class="poster-card">
             <img src=@("https://image.tmdb.org/t/p/w500/" + poster.ImageLink) class="poster-thumbnail" />
         </div>
     }
@@ -42,20 +42,21 @@
 
 <h6 class="section-subtitle">Trailers</h6>
 <div class="media-detail-cast-container">
-    @foreach (var video in @Model.MovieMedia.Videos)
+    @foreach (var video in @Model.Media.Videos)
     {
         <div class="poster-card">
-              <iframe width="560" height="315" src=@("https://www.youtube.com/embed/" + video.VideoLink)  title="YouTube video player" 
-            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="560" height="315" src=@("https://www.youtube.com/embed/" + video.VideoLink) title="YouTube video player"
+                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
-          
 
     }
 </div>
 
-@*<section class="section-overview">
-    <partial name="_PosterCarousel" for="@Model.MovieMedia.Posters"/>
-</section>*@
+<h6 class="section-subtitle">You Might Also Like...</h6>
+<div class="media-detail-cast-container">
+    @foreach (var movie in @Model.Recommendations)
+    {
+         <partial name="_MovieCard" for="@movie" />
 
-
-
+    }
+</div>

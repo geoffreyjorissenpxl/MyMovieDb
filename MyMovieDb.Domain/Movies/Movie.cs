@@ -34,11 +34,6 @@ namespace MyMovieDb.Domain.Movies
         [JsonProperty(PropertyName = "popularity")]
         public double PopularityScore { get; set; }
         
-        [JsonIgnore]
-        public IList<Cast> Cast { get; set; }
-       
-        [JsonIgnore]
-        public Media MovieMedia { get; set; }
 
     }
 }

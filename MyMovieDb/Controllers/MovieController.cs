@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MyMovieDb.Data.Services.Contracts;
 using MyMovieDb.Domain;
+using MyMovieDb.Models;
 
 namespace MyMovieDb.Controllers
 {
@@ -25,16 +26,25 @@ namespace MyMovieDb.Controllers
 
         public async Task<IActionResult> Detail(int id)
         {
+
             var movie = await _movieService.GetDetails(id);
-            movie.Cast = await _movieService.GetMovieCast(id);
+            var cast = await _movieService.GetMovieCast(id);
 
             var movieMedia = new Media();
             movieMedia.Videos = await _mediaService.GetVideos(id, "movie");
             movieMedia.Posters = await _mediaService.GetPosters(id, "movie");
 
-            movie.MovieMedia = movieMedia;
+            var recommendations = await _movieService.GetMovieRecommendations(id);
 
-            return View(movie);
+            var viewModel = new MovieDetailViewModel()
+            {
+                Movie = movie,
+                Cast = cast,
+                Recommendations = recommendations,
+                Media = movieMedia
+            };
+
+            return View(viewModel);
         }
     }
 }

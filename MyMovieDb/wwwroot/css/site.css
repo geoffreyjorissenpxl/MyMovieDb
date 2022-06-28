@@ -345,7 +345,7 @@ body {
 .poster-card {
     flex: 0 0 auto;
     width: auto;
-    height: 400px;
+    height: auto;
     margin-right: 10px;
 }
 
