@@ -30,3 +30,32 @@
     }
 </div>
 
+<h6 class="section-subtitle">Movie Images</h6>
+<div class="media-detail-cast-container">
+    @foreach (var poster in @Model.MovieMedia.Posters)
+    {
+            <div class="poster-card">
+            <img src=@("https://image.tmdb.org/t/p/w500/" + poster.ImageLink) class="poster-thumbnail" />
+        </div>
+    }
+</div>
+
+<h6 class="section-subtitle">Trailers</h6>
+<div class="media-detail-cast-container">
+    @foreach (var video in @Model.MovieMedia.Videos)
+    {
+        <div class="poster-card">
+              <iframe width="560" height="315" src=@("https://www.youtube.com/embed/" + video.VideoLink)  title="YouTube video player" 
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+          
+
+    }
+</div>
+
+@*<section class="section-overview">
+    <partial name="_PosterCarousel" for="@Model.MovieMedia.Posters"/>
+</section>*@
+
+
+
