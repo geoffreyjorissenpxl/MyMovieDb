@@ -1,4 +1,5 @@
-﻿using MyMovieDb.Domain.TVSeries;
+﻿using MyMovieDb.Domain;
+using MyMovieDb.Domain.TVSeries;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,5 +13,7 @@ namespace MyMovieDb.Data.Services.Contracts
         Task<IList<TVSerieSearch>> SearchTVSerie(string name, int page = 1);
         Task<IList<TVSerieSearch>> GetPopularTVSeries();
         Task<IList<TVSerieSearch>> GetTopRatedTVSeries(int page = 1);
+        Task<IList<Cast>> GetTVSerieCast(int id);
+        Task<IList<TVSerieSearch>> GetTVSerieRecommendations(int id);
     }
 }

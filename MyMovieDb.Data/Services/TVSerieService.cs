@@ -44,6 +44,7 @@ namespace MyMovieDb.Data.Services
 
             return resultPage.Results;
         }
+
         public async Task<IList<TVSerieSearch>> SearchTVSerie(string name, int page = 1)
         {
             var query = Uri.EscapeUriString(name);
@@ -51,6 +52,22 @@ namespace MyMovieDb.Data.Services
 
             var resultPage = await _genericApiRepository.GetAsync<ResultPage<TVSerieSearch>>(url);
             return resultPage.Results;
+        }
+
+        public async Task<IList<Cast>> GetTVSerieCast(int id)
+        {
+            var url = $"tv/{id}/credits?api_key={ApiConstants.ApiKey}&language=en-US";
+
+            var result = await _genericApiRepository.GetAsync<Credits>(url);
+            return result.Cast;
+        }
+
+        public async Task<IList<TVSerieSearch>> GetTVSerieRecommendations(int id)
+        {
+            var url = $"tv/{id}/recommendations?api_key={ApiConstants.ApiKey}&language=en-US&page=1";
+
+            var result = await _genericApiRepository.GetAsync<ResultPage<TVSerieSearch>>(url);
+            return result.Results;
         }
     }
 }
