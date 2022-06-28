@@ -16,5 +16,6 @@ namespace MyMovieDb.Data.Services.Contracts
         Task<IList<MovieSearch>> GetUpcomingMovies(int page = 1);
         Task<IList<MovieSearch>> GetMoviesInTheater(int page = 1);
         Task<IList<Cast>> GetMovieCast(int id);
+        Task<IList<MovieSearch>> GetMovieRecommendations(int id);
     }
 }

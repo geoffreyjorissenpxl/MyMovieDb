@@ -75,5 +75,13 @@ namespace MyMovieDb.Data.Services
             return result.Cast;
 
         }
+
+        public async Task<IList<MovieSearch>> GetMovieRecommendations(int id)
+        {
+            var url = $"movie/{id}/recommendations?api_key={ApiConstants.ApiKey}&language=en-US&page=1";
+
+            var result = await _genericApiRepository.GetAsync<ResultPage<MovieSearch>>(url);
+            return result.Results;
+        }
     }
 }
