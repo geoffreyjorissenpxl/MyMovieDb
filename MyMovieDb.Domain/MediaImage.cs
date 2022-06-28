@@ -1,7 +1,14 @@
-﻿namespace MyMovieDb.Domain
+﻿using Newtonsoft.Json;
+
+namespace MyMovieDb.Domain
 {
     public class MediaImage
     {
-        public string ImageLink{ get; set; }
+        [JsonProperty(PropertyName = "file_path")]
+        public string ImageLink { get; set; }
+
+
+        [JsonProperty(PropertyName = "vote_average")]
+        public double Popularity { get; set; }
     }
 }

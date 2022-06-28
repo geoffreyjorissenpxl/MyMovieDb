@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MyMovieDb.Data.Services.Contracts;
+using MyMovieDb.Domain;
 
 namespace MyMovieDb.Controllers
 {
@@ -27,8 +28,11 @@ namespace MyMovieDb.Controllers
             var movie = await _movieService.GetDetails(id);
             movie.Cast = await _movieService.GetMovieCast(id);
 
-            movie.MovieMedia.Posters = await _mediaService.GetPosters(id, "movie");
-            movie.MovieMedia.Videos = await _mediaService.GetVideos(id, "movie");
+            var movieMedia = new Media();
+            movieMedia.Videos = await _mediaService.GetVideos(id, "movie");
+            movieMedia.Posters = await _mediaService.GetPosters(id, "movie");
+
+            movie.MovieMedia = movieMedia;
 
             return View(movie);
         }

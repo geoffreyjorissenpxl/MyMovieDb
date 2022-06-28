@@ -7,7 +7,7 @@ namespace MyMovieDb.Domain
 {
     public class Media
     {
-        [JsonProperty(PropertyName = "posters")]
+        [JsonProperty(PropertyName = "backdrops")]
         public IList<MediaImage>  Posters { get; set; }
         
         [JsonProperty(PropertyName = "Results")]

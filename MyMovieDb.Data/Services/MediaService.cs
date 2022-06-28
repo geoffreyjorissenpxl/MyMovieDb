@@ -21,10 +21,10 @@ namespace MyMovieDb.Data.Services
 
         public async Task<IList<MediaImage>> GetPosters(int id, string media)
         {
-            var url = $"{media}/{id}/images?api_key={ApiConstants.ApiKey}&language=en-US"; ;
+            var url = $"{media}/{id}/images?api_key={ApiConstants.ApiKey}";
             var result = await _genericApiRepository.GetAsync<Media>(url);
 
-            return result.Posters.Take(10).ToList();
+            return result.Posters.OrderByDescending(x => x.Popularity).Take(15).ToList();
         }
 
         public async Task<IList<MediaVideo>> GetVideos(int id, string media)
@@ -32,7 +32,9 @@ namespace MyMovieDb.Data.Services
             var url = $"{media}/{id}/videos?api_key={ApiConstants.ApiKey}&language=en-US";
             var result = await _genericApiRepository.GetAsync<Media>(url);
 
-            return result.Videos.Take(5).ToList();
+            return result.Videos.Where(x => x.Site.ToLower() == "youtube")
+                .Where(x => x.Type.ToLower() == "trailer")
+                .Take(5).ToList();
         }
     }
 }
