@@ -1,0 +1,61 @@
+﻿@model TVDetailViewModel
+
+<div class="grid-detail-header-container tv-section">
+    <img src=@("https://image.tmdb.org/t/p/w300" + @Model.TVSerie.PosterLink) class="media-poster" />
+
+    <div class="grid-item">
+
+        <h3 class="media-detail-title">@Model.TVSerie.Title.ToUpper()</h3>
+        <p>@Model.TVSerie.Seasons.Count Seasons -</p>
+
+        @foreach (var genre in Model.TVSerie.Genres)
+        {
+            <p>@genre.Name</p>
+        }
+
+        <h6>Rating @Model.TVSerie.Rating.ToString("0.0")</h6>
+
+         <h6 class="media-short-description">@Model.TVSerie.Tagline</h6>
+        <h4 class="media-detail-subtitle">Description</h4>
+        <p class="media-description">@Model.TVSerie.Overview</p>
+    </div>
+</div>
+
+<h6 class="section-subtitle">Cast</h6>
+<div class="media-detail-cast-container">
+    @foreach (var castMember in @Model.Cast)
+    {
+        <partial name="_CastCard" for="@castMember"></partial>
+    }
+</div>
+
+<h6 class="section-subtitle">TV Show Images</h6>
+<div class="media-detail-cast-container">
+    @foreach (var poster in @Model.Media.Posters)
+    {
+        <div class="poster-card">
+            <img src=@("https://image.tmdb.org/t/p/w500/" + poster.ImageLink) class="poster-thumbnail" />
+        </div>
+    }
+</div>
+
+<h6 class="section-subtitle">Trailers</h6>
+<div class="media-detail-cast-container">
+    @foreach (var video in @Model.Media.Videos)
+    {
+        <div class="poster-card">
+            <iframe width="560" height="315" src=@("https://www.youtube.com/embed/" + video.VideoLink) title="YouTube video player"
+                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+    }
+</div>
+
+<h6 class="section-subtitle">You Might Also Like...</h6>
+<div class="media-detail-cast-container">
+    @foreach (var TV in @Model.Recommendations)
+    {
+         <partial name="_TvCard" for="@TV" />
+
+    }
+</div>

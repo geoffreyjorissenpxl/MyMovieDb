@@ -293,6 +293,7 @@ body {
 
 .media-detail-cast-container {
     margin-left: 10vw;
+    margin-right: 10vw;
     margin-bottom: 10vh;
     display: flex;
     overflow-x: scroll;
