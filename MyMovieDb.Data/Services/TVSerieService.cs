@@ -29,29 +29,29 @@ namespace MyMovieDb.Data.Services
             return result;
         }
 
-        public async Task<IList<TVSerieSearch>> GetPopularTVSeries()
+        public async Task<ResultPage<TVSerieSearch>> GetPopularTVSeries(int page)
         {
-            var url = $"tv/popular?api_key={ApiConstants.ApiKey}&language=en-US&page=1";
+            var url = $"tv/popular?api_key={ApiConstants.ApiKey}&language=en-US&page={page}";
             var resultPage = await _genericApiRepository.GetAsync<ResultPage<TVSerieSearch>>(url);
 
-            return resultPage.Results;
+            return resultPage;
         }
 
-        public async Task<IList<TVSerieSearch>> GetTopRatedTVSeries(int page = 1)
+        public async Task<ResultPage<TVSerieSearch>> GetTopRatedTVSeries(int page)
         {
             var url = $"tv/top_rated?api_key={ApiConstants.ApiKey}&language=en-US&page={page}";
             var resultPage = await _genericApiRepository.GetAsync<ResultPage<TVSerieSearch>>(url);
 
-            return resultPage.Results;
+            return resultPage;
         }
 
-        public async Task<IList<TVSerieSearch>> SearchTVSerie(string name, int page = 1)
+        public async Task<ResultPage<TVSerieSearch>> SearchTVSerie(string name, int page)
         {
             var query = Uri.EscapeUriString(name);
             var url = $"/search/tv?api_key={ApiConstants.ApiKey}&language=en-US&page={page}&query={query}&include_adult=false";
 
             var resultPage = await _genericApiRepository.GetAsync<ResultPage<TVSerieSearch>>(url);
-            return resultPage.Results;
+            return resultPage;
         }
 
         public async Task<IList<Cast>> GetTVSerieCast(int id)

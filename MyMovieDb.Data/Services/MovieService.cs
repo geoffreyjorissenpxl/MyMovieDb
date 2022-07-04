@@ -27,36 +27,36 @@ namespace MyMovieDb.Data.Services
             return result;
         }
 
-        public async Task<IList<MovieSearch>> GetPopularMovies(int page = 1)
+        public async Task<ResultPage<MovieSearch>> GetPopularMovies(int page = 1)
         {
             var url = $"{ApiConstants.PopularMoviesEndpoint}api_key={ApiConstants.ApiKey}&language=en-US&page={page}";
             var resultPage = await _genericApiRepository.GetAsync<ResultPage<MovieSearch>>(url);
 
-            return resultPage.Results;
+            return resultPage;
         }
 
-        public async Task<IList<MovieSearch>> GetTopRatedMovies(int page)
+        public async Task<ResultPage<MovieSearch>> GetTopRatedMovies(int page)
         {
             var url = $"{ApiConstants.TopRatedMoviesEndPoint}api_key={ApiConstants.ApiKey}&language=en-US&page={page}";
             var resultPage = await _genericApiRepository.GetAsync<ResultPage<MovieSearch>>(url);
 
-            return resultPage.Results;
+            return resultPage;
         }
 
-        public async Task<IList<MovieSearch>> GetMoviesInTheater(int page = 1)
+        public async Task<ResultPage<MovieSearch>> GetMoviesInTheater(int page = 1)
         {
             var url = $"{ApiConstants.MoviesInTheaterEndPoint}api_key={ApiConstants.ApiKey}&language=en-US&page={page}";
             var resultPage = await _genericApiRepository.GetAsync<ResultPage<MovieSearch>>(url);
 
-            return resultPage.Results;
+            return resultPage;
         }
 
-        public async Task<IList<MovieSearch>> GetUpcomingMovies(int page)
+        public async Task<ResultPage<MovieSearch>> GetUpcomingMovies(int page)
         {
             var url = $"{ApiConstants.UpcomingMoviesEndpoint}api_key={ApiConstants.ApiKey}&language=en-US&page={page}";
             var resultPage = await _genericApiRepository.GetAsync<ResultPage<MovieSearch>>(url);
 
-            return resultPage.Results;
+            return resultPage;
         }
 
         public async Task<IList<MovieSearch>> SearchMovie(string name, int page)

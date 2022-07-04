@@ -11,10 +11,10 @@ namespace MyMovieDb.Data.Services.Contracts
     {
         Task<Movie> GetDetails(int id);
         Task<IList<MovieSearch>> SearchMovie(string name, int page = 1);
-        Task<IList<MovieSearch>> GetPopularMovies(int page = 1);
-        Task<IList<MovieSearch>> GetTopRatedMovies(int page = 1);
-        Task<IList<MovieSearch>> GetUpcomingMovies(int page = 1);
-        Task<IList<MovieSearch>> GetMoviesInTheater(int page = 1);
+        Task<ResultPage<MovieSearch>> GetPopularMovies(int page);
+        Task<ResultPage<MovieSearch>> GetTopRatedMovies(int page);
+        Task<ResultPage<MovieSearch>> GetUpcomingMovies(int page);
+        Task<ResultPage<MovieSearch>> GetMoviesInTheater(int page);
         Task<IList<Cast>> GetMovieCast(int id);
         Task<IList<MovieSearch>> GetMovieRecommendations(int id);
         Task<IList<Review>> GetMovieReviews(int id);

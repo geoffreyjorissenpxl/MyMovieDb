@@ -10,11 +10,11 @@ namespace MyMovieDb.Data.Services.Contracts
     public interface ITVSerieService
     {
         Task<TVSerie> GetDetails(int id);
-        Task<IList<TVSerieSearch>> SearchTVSerie(string name, int page = 1);
-        Task<IList<TVSerieSearch>> GetPopularTVSeries();
-        Task<IList<TVSerieSearch>> GetTopRatedTVSeries(int page = 1);
+        Task<ResultPage<TVSerieSearch>> SearchTVSerie(string name, int page);
+        Task<ResultPage<TVSerieSearch>> GetPopularTVSeries(int page);
+        Task<ResultPage<TVSerieSearch>> GetTopRatedTVSeries(int page);
         Task<IList<Cast>> GetTVSerieCast(int id);
-        Task<IList<TVSerieSearch>> GetTVSerieRecommendations(int id);
+        Task<IList<TVSerieSearch>>GetTVSerieRecommendations(int id);
         Task<IList<Review>> GetTVSerieReviews(int id);
     }
 }

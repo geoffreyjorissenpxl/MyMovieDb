@@ -30,12 +30,12 @@ namespace MyMovieDb.Controllers
         public async Task<IActionResult> Index()
         {
             var viewModel = new HomeViewModel();
-            viewModel.TheaterMovies = await _movieService.GetMoviesInTheater(1);
-            viewModel.PopularMovies = await _movieService.GetPopularMovies();
-            viewModel.TopRatedMovies = await _movieService.GetTopRatedMovies();
+            viewModel.TheaterMovies = (await _movieService.GetMoviesInTheater(1)).Results;
+            viewModel.PopularMovies = (await _movieService.GetPopularMovies(1)).Results;
+            viewModel.TopRatedMovies = (await _movieService.GetTopRatedMovies(1)).Results;
 
-            viewModel.PopularTVSeries = await _tvSerieService.GetPopularTVSeries();
-            viewModel.TopRatedTVSeries = await _tvSerieService.GetTopRatedTVSeries();
+            viewModel.PopularTVSeries = (await _tvSerieService.GetPopularTVSeries(1)).Results;
+            viewModel.TopRatedTVSeries = (await _tvSerieService.GetTopRatedTVSeries(1)).Results;
             
             return View(viewModel);
         }
