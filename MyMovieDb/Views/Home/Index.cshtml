@@ -14,19 +14,25 @@
         <section class="section-overview">
             <h2 class="section-subtitle">Now In Theaters</h2>
             <partial name="_MovieCarousel" for="@Model.TheaterMovies" />
-            <button class="more-btn">View More In Theaters</button>
+                <a class="more-btn" asp-controller="Movie" asp-action="Theater">
+                    View More In Theaters
+                </a>
         </section>
 
         <section class="section-overview">
             <h2 class="section-subtitle">Popular Movies</h2>
             <partial name="_MovieCarousel" for="@Model.PopularMovies" />
-            <button class="more-btn">View More Popular</button>
+                <a class="more-btn" asp-controller="Movie" asp-action="Popular">
+                    View More Popular
+                </a>
         </section>
 
         <section class="section-overview">
             <h2 class="section-subtitle">Top Rated Movies</h2>
             <partial name="_MovieCarousel" for="@Model.TopRatedMovies" />
-            <button class="more-btn">View More Top Rated</button>
+                <a class="more-btn" asp-controller="Movie" asp-action="TopRated">
+                    View More Top Rated
+                </a>
         </section>
     </section>
 
@@ -35,13 +41,17 @@
         <section class="section-overview">
             <h2 class="section-subtitle">Popular TV-Shows</h2>
             <partial name="_TvCarousel" for="@Model.TopRatedTVSeries" />
-            <button class="more-btn">View More Popular</button>
+            <a class="more-btn" asp-controller="TV" asp-action="Popular">
+                    View More Popular
+                </a>
         </section>
 
         <section class="section-overview">
             <h2 class="section-subtitle">Top rated TV-Shows</h2>
             <partial name="_TvCarousel" for="@Model.PopularTVSeries" />
-            <button class="more-btn">View More Top Rated</button>
+             <a class="more-btn" asp-controller="TV" asp-action="TopRated">
+                    View More Top Rated
+                </a>
         </section>
     </section>
 

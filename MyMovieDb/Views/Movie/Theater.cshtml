@@ -1,0 +1,14 @@
+﻿@model IList<MovieSearch>
+
+    <div class="central-container">
+
+    </div>
+    <h1 class="section-title">Currently In Theaters</h1>
+    <div class="container-theater-cards">
+
+        @foreach (var show in Model)
+        {
+             <partial name="_MovieCard" for="@show"/>
+        }
+       
+    </div>

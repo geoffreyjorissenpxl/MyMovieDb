@@ -1,29 +1,28 @@
-﻿@model MovieDetailViewModel
+﻿@model TVDetailViewModel
 
 <div class="grid-detail-header-container tv-section">
-    <img src=@("https://image.tmdb.org/t/p/w300" + @Model.Movie.PosterLink) class="media-poster" />
+    <img src=@("https://image.tmdb.org/t/p/w300" + @Model.TVSerie.PosterLink) class="media-poster" />
 
     <div class="grid-item">
 
-        <h3 class="media-detail-title">@Model.Movie.Title.ToUpper()</h3>
-        <p>@Model.Movie.ReleaseDate.Value.Year -</p>
+        <h3 class="media-detail-title">@Model.TVSerie.Title.ToUpper()</h3>
+        <p>@Model.TVSerie.Seasons.Count Seasons -</p>
 
-        @foreach (var genre in Model.Movie.Genres)
+        @foreach (var genre in Model.TVSerie.Genres)
         {
             <p>@genre.Name</p>
         }
-        <p>- @Model.Movie.Duration min</p>
 
-        <h6>Rating @Model.Movie.Rating.ToString("0.0")</h6>
+        <h6>Rating @Model.TVSerie.Rating.ToString("0.0")</h6>
 
-        @if(@Model.Reviews.Count != 0)
+          @if(@Model.Reviews.Count != 0)
         {
             <a href="@Model.Reviews.First().Url">Read review</a>
         }
 
-        <h6 class="media-short-description">@Model.Movie.Tagline</h6>
+         <h6 class="media-short-description">@Model.TVSerie.Tagline</h6>
         <h4 class="media-detail-subtitle">Description</h4>
-        <p class="media-description">@Model.Movie.Description</p>
+        <p class="media-description">@Model.TVSerie.Overview</p>
     </div>
 </div>
 
@@ -35,7 +34,7 @@
     }
 </div>
 
-<h6 class="section-subtitle">Movie Images</h6>
+<h6 class="section-subtitle">TV Show Images</h6>
 <div class="media-detail-cast-container">
     @foreach (var poster in @Model.Media.Posters)
     {
@@ -59,9 +58,9 @@
 
 <h6 class="section-subtitle">You Might Also Like...</h6>
 <div class="media-detail-cast-container">
-    @foreach (var movie in @Model.Recommendations)
+    @foreach (var TV in @Model.Recommendations)
     {
-         <partial name="_MovieCard" for="@movie" />
+         <partial name="_TvCard" for="@TV" />
 
     }
 </div>

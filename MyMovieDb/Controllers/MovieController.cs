@@ -34,6 +34,8 @@ namespace MyMovieDb.Controllers
             movieMedia.Videos = await _mediaService.GetVideos(id, "movie");
             movieMedia.Posters = await _mediaService.GetPosters(id, "movie");
 
+            var reviews = await _movieService.GetMovieReviews(id);
+
             var recommendations = await _movieService.GetMovieRecommendations(id);
 
             var viewModel = new MovieDetailViewModel()
@@ -41,9 +43,22 @@ namespace MyMovieDb.Controllers
                 Movie = movie,
                 Cast = cast,
                 Recommendations = recommendations,
-                Media = movieMedia
+                Media = movieMedia,
+                Reviews = reviews
             };
 
+            return View(viewModel);
+        }
+
+        public async Task<IActionResult> Theater(int page = 5)
+        {
+            if(page < 1)
+            {
+                page = 1;
+            }
+
+
+            var viewModel = await _movieService.GetMoviesInTheater(page);
             return View(viewModel);
         }
     }
