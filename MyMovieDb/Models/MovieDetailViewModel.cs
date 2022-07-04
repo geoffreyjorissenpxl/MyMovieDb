@@ -10,5 +10,6 @@ namespace MyMovieDb.Models
         public IList<MovieSearch> Recommendations { get; set; }
         public IList<Cast> Cast { get; set; }
         public Media Media { get; set; }
+        public IList<Review> Reviews { get; set; }
     }
 }

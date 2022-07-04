@@ -34,14 +34,17 @@ namespace MyMovieDb.Controllers
             tvSerieMedia.Videos = await _mediaService.GetVideos(id, "tv");
             tvSerieMedia.Posters = await _mediaService.GetPosters(id, "tv");
 
+            var reviews = await _tvSerieService.GetTVSerieReviews(id);
+
             var recommendations = await _tvSerieService.GetTVSerieRecommendations(id);
 
             var viewModel = new TVDetailViewModel()
             {
-                 TVSerie = tvSerie,
+                TVSerie = tvSerie,
                 Cast = cast,
                 Recommendations = recommendations,
-                Media = tvSerieMedia
+                Media = tvSerieMedia,
+                Reviews = reviews
             };
 
             return View(viewModel);

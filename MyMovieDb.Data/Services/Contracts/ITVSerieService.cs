@@ -15,5 +15,6 @@ namespace MyMovieDb.Data.Services.Contracts
         Task<IList<TVSerieSearch>> GetTopRatedTVSeries(int page = 1);
         Task<IList<Cast>> GetTVSerieCast(int id);
         Task<IList<TVSerieSearch>> GetTVSerieRecommendations(int id);
+        Task<IList<Review>> GetTVSerieReviews(int id);
     }
 }

@@ -16,6 +16,11 @@
 
         <h6>Rating @Model.Movie.Rating.ToString("0.0")</h6>
 
+        @if(@Model.Reviews.Count != 0)
+        {
+            <a href="@Model.Reviews.First().Url">Read review</a>
+        }
+
         <h6 class="media-short-description">@Model.Movie.Tagline</h6>
         <h4 class="media-detail-subtitle">Description</h4>
         <p class="media-description">@Model.Movie.Description</p>
