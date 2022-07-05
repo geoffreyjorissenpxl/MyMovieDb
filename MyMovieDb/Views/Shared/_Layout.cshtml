@@ -17,21 +17,37 @@
                 </button>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav mr-5">
+
                         <li class="nav-item active">
                             <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Movie" asp-action="Index">Movies</a>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Movies
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" asp-controller="Movie" asp-action="Theater">In Theater</a>
+                                <a class="dropdown-item" asp-controller="Movie" asp-action="Popular">Popular</a>
+                                <a class="dropdown-item" asp-controller="Movie" asp-action="TopRated">Top Rated</a>
+                            </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="TV" asp-action="Index">TV</a>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Movies
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" asp-controller="TV" asp-action="Popular">Popular</a>
+                                <a class="dropdown-item" asp-controller="TV" asp-action="TopRated">Top Rated</a>
+                            </div>
                         </li>
                     </ul>
 
-                     <form asp-controller="Home" asp-action="Search" method="get" class="search-form">
-                            <input class="search-input" type="text" name="query" placeholder="Search" aria-label="Search">
-                            <button class="search-btn" type="submit">Search</button>
-                        </form>
+                    <form asp-controller="Home" asp-action="Search" method="get" class="search-form">
+                        <input class="search-input" type="text" name="query" placeholder="Search" aria-label="Search">
+                        <button class="search-btn" type="submit">Search</button>
+                    </form>
 
                 </div>
             </div>
