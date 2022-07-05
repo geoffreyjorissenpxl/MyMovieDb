@@ -10,7 +10,7 @@ namespace MyMovieDb.Data.Services.Contracts
     public interface IMovieService
     {
         Task<Movie> GetDetails(int id);
-        Task<IList<MovieSearch>> SearchMovie(string name, int page = 1);
+        Task<ResultPage<MovieSearch>> SearchMovie(string name, int page = 1);
         Task<ResultPage<MovieSearch>> GetPopularMovies(int page);
         Task<ResultPage<MovieSearch>> GetTopRatedMovies(int page);
         Task<ResultPage<MovieSearch>> GetUpcomingMovies(int page);

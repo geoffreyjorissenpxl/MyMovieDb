@@ -59,12 +59,12 @@ namespace MyMovieDb.Data.Services
             return resultPage;
         }
 
-        public async Task<IList<MovieSearch>> SearchMovie(string name, int page)
+        public async Task<ResultPage<MovieSearch>> SearchMovie(string name, int page)
         {
             var url = $"{ApiConstants.SearchMovieEndPoint}api_key={ApiConstants.ApiKey}&language=en-US&query={name}&page={page}&include_adult=false";
 
             var resultPage = await _genericApiRepository.GetAsync<ResultPage<MovieSearch>>(url);
-            return resultPage.Results;
+            return resultPage;
         }
 
         public async Task<IList<Cast>> GetMovieCast(int id)
