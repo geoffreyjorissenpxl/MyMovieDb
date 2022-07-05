@@ -50,13 +50,12 @@ namespace MyMovieDb.Controllers
             return View(viewModel);
         }
 
-        public async Task<IActionResult> Theater(int page = 5)
+        public async Task<IActionResult> Theater(int page = 1)
         {
             if(page < 1)
             {
                 page = 1;
             }
-
 
             var viewModel = await _movieService.GetMoviesInTheater(page);
             return View(viewModel);

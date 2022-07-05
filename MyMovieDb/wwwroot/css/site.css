@@ -365,3 +365,29 @@ body {
     display: flex;
     flex-wrap: wrap;
 }
+
+.pagination-container {
+    padding: 0 10vw 10vh 10vw;
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+.pagination-btn {
+    background-color: #e9ecef;
+    color: #343a40;
+    border-color: #343a40;
+    padding: 10px 15px;
+    font-size: larger
+}
+
+.pagination-btn:hover {
+    color: #e9ecef;
+    background-color: #343a40;
+    text-decoration: none;
+}
+
+.pagination-info{
+    margin: 0;
+    padding: 10px;
+}
