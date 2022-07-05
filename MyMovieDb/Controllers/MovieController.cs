@@ -60,5 +60,27 @@ namespace MyMovieDb.Controllers
             var viewModel = await _movieService.GetMoviesInTheater(page);
             return View(viewModel);
         }
+
+        public async Task<IActionResult> Popular(int page = 1)
+        {
+            if (page < 1)
+            {
+                page = 1;
+            }
+
+            var viewModel = await _movieService.GetPopularMovies(page);
+            return View(viewModel);
+        }
+
+        public async Task<IActionResult> TopRated(int page = 1)
+        {
+            if (page < 1)
+            {
+                page = 1;
+            }
+
+            var viewModel = await _movieService.GetPopularMovies(page);
+            return View(viewModel);
+        }
     }
 }
