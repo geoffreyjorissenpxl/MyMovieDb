@@ -414,3 +414,17 @@ body {
     margin-right: 5px;
 }
 
+.dropdown-item {
+    background-color: #343a40;
+    color: #e9ecef
+}
+
+.dropdown-menu {
+    padding: 0;
+    border: none;
+}
+
+.dropdown-item:hover {
+    background-color: #e9ecef;
+    }
+
