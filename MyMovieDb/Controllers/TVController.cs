@@ -49,5 +49,28 @@ namespace MyMovieDb.Controllers
 
             return View(viewModel);
         }
+
+        public async Task<IActionResult> TopRated(int page = 1)
+        {
+            if (page < 1)
+            {
+                page = 1;
+            }
+
+            var viewModel = await _tvSerieService.GetPopularTVSeries(page);
+            return View(viewModel);
+        }
+
+
+        public async Task<IActionResult> Popular(int page = 1)
+        {
+            if (page < 1)
+            {
+                page = 1;
+            }
+
+            var viewModel = await _tvSerieService.GetTopRatedTVSeries(page);
+            return View(viewModel);
+        }
     }
 }

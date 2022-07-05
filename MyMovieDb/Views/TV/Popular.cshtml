@@ -1,0 +1,29 @@
+﻿@model ResultPage<TVSerieSearch>
+
+<div class="central-container">
+</div>
+<h1 class="section-title">Currently In Theaters</h1>
+<div class="container-theater-cards">
+
+    @foreach (var show in Model.Results)
+    {
+        <partial name="_TvCard" for="@show" />
+    }
+</div>
+<div class="pagination-container">
+    @if (Model.TotalPages > 0)
+    {
+        @if (Model.CurrentPage > 1)
+        {
+                <a class="pagination-btn" asp-action="Popular" asp-route-page="@(Model.CurrentPage - 1)">Previous</a>
+        }
+
+        <p class="pagination-info">@Model.CurrentPage / @Model.TotalPages</p>
+
+        @if (Model.CurrentPage < Model.TotalPages)
+        {
+            <a class="pagination-btn" asp-action="Popular" asp-route-page="@(Model.CurrentPage + 1)">Next</a>
+        }
+
+    }
+</div>
