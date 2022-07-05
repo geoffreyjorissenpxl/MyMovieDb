@@ -79,7 +79,7 @@ body {
 }
 
 .section-title {
-    padding: 0 10vw;
+    margin: 5vh 10vw;
     font-size: 40px;
     font-weight: 500;
     margin-bottom: 20px;
@@ -391,3 +391,26 @@ body {
     margin: 0;
     padding: 10px;
 }
+
+.search-btn {
+    all: unset;
+    border: 1px solid;
+    padding: 1px 10px;
+    background-color: #343a40;
+    border-color: #e9ecef;
+    color: #e9ecef;
+}
+.search-btn:hover {
+    background-color: #e9ecef;
+    color: #343a40;
+
+}
+
+.search-input {
+    all: unset;
+    width: 15em;
+    background-color: #e9ecef;
+    padding: 2px;
+    margin-right: 5px;
+}
+
